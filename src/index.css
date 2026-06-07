@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    @apply bg-surface-800 text-gray-100;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  html.light body {
+    @apply bg-light-bg text-light-text;
+  }
+}
+
+@layer components {
+  .card-dark { @apply bg-surface-700 border border-surface-500 rounded-2xl; }
+  .card-light { @apply bg-light-card border border-light-border rounded-2xl shadow-sm; }
+  .btn-primary {
+    @apply bg-accent text-surface-900 font-display font-semibold px-6 py-2.5 rounded-xl 
+           hover:bg-accent-dim transition-all duration-200 hover:shadow-[0_0_20px_rgba(0,229,255,0.4)];
+  }
+  .btn-ghost {
+    @apply border border-surface-400 text-gray-300 font-display px-6 py-2.5 rounded-xl 
+           hover:border-accent hover:text-accent transition-all duration-200;
+  }
+  .input-field {
+    @apply w-full bg-surface-600 border border-surface-400 rounded-xl px-4 py-3 
+           text-gray-100 placeholder-gray-500 font-body
+           focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/30
+           transition-all duration-200;
+  }
+  .input-light {
+    @apply w-full bg-white border border-light-border rounded-xl px-4 py-3 
+           text-light-text placeholder-gray-400 font-body
+           focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/30
+           transition-all duration-200;
+  }
+  .nav-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 
+           hover:text-accent hover:bg-accent/5 transition-all duration-200 font-body;
+  }
+  .nav-link.active { @apply text-accent bg-accent/10 border border-accent/20; }
+  .stat-card { @apply card-dark p-6 hover:border-accent/30 transition-all duration-300 cursor-default; }
+  .badge { @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium font-mono; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #00E5FF, #FFD060);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-glow {
+  background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0,229,255,0.12) 0%, transparent 70%);
+}
+.sidebar-glow { box-shadow: 4px 0 40px rgba(0,0,0,0.4); }
+
+/* Fixed: was transitioning height but bars use width */
+.chart-bar { transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
+.animate-delay-400 { animation-delay: 0.4s; }
+.animate-delay-500 { animation-delay: 0.5s; }
